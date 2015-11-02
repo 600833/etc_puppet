@@ -1,0 +1,19 @@
+---
+:backends:
+  - yaml
+:hierarchy:
+  - "%{::subsystem_id}-conf/%{::apply_subsystem_conf_version}/nodes/%{::fqdn}.generated"
+  - "%{::subsystem_id}-conf/%{::apply_subsystem_conf_version}/modules/%{module_name}/params"
+  - "%{::subsystem_id}-conf/%{::apply_subsystem_conf_version}/modules/%{module_name}/params.generated"
+  - "%{::subsystem_id}-conf/%{::apply_subsystem_conf_version}/common/params"
+  - "%{::subsystem_id}-conf/%{::apply_subsystem_conf_version}/common/params.base"
+  - "%{::subsystem_id}-conf/%{::apply_subsystem_conf_version}/common/params.generated"
+#
+#section IT
+#
+  - "moduledata/%{module_name}"
+  - global
+
+:yaml:
+  :datadir: /data/puppet/hiera
+:merge_behavior: deeper
